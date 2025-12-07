@@ -1,4 +1,4 @@
-const API_URL = "finalbackendpcu-production.up.railway.app"; 
+const API_URL = "https://finalbackendpcu-production.up.railway.app";
 
 
 let globalInventory = [];
