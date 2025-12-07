@@ -1,5 +1,5 @@
 // --- CONFIGURATION ---
-const API_URL = "finalbackendpcu-production.up.railway.app"; 
+const API_URL = "https://finalbackendpcu-production.up.railway.app"; 
 
 // --- LOGIN EVENT LISTENER ---
 document.getElementById('loginForm').addEventListener('submit', async (e) => {
