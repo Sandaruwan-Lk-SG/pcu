@@ -214,7 +214,7 @@ function updateDashboardUI(inv, dmg) {
                 stagnantList.innerHTML = badges[index];
                 stagnantList.style.opacity = 1;
             }, 250);
-        }, 4000);
+        }, 2500);
     }
 
     // C. PENDING DAMAGE TABLE
