@@ -213,7 +213,7 @@ function updateDashboardUI(inv, dmg) {
             setTimeout(() => {
                 stagnantList.innerHTML = badges[index];
                 stagnantList.style.opacity = 1;
-            }, 220);
+            }, 250);
         }, 4500);
     }
 
