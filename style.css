@@ -296,14 +296,18 @@ button, .btn-action {
     }
 }
 
-/* ========== BEGIN COMPACT CATEGORY + STAGNANT OVERRIDES ========== */
-
 /* Compact category grid for Stock Overview (smaller glass space) */
 #categoryGrid.cards-grid {
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    /* PC/Desktop View: උපරිම පළල 180px ට සීමා කරයි. කුඩා කාඩ්පත් තිබුණත් විශාල ලෙස විහිදීම වළක්වයි. */
+    grid-template-columns: repeat(auto-fit, minmax(120px, 180px));
     gap: 10px;
     align-items: start;
+    /* අමතර වැඩි දියුණු කිරීම: කාඩ්පත් ජාලය වම් පසට පෙළගස්වන්න. */
+    justify-content: start; 
 }
+
+/* * අනෙක් CSS සහ @media (max-width: 768px) කොටසෙහි ඇති ගැලපීම් එලෙසම පවතිනු ඇත. */
+
 
 /* even smaller cat-card variant for compact layout */
 .cat-card {
