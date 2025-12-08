@@ -9,7 +9,7 @@ let chartInstance = null; // Chart.js instance
 // --- additional globals for stagnant rotation ---
 let stagnantRotateInterval = null;
 
-
+let stagnantRotateIndex = 0; // 👈 මෙම රේඛාව එක් කරන්න.
 function dateOnly(ts) {
     if (!ts) return '';
     const d = new Date(ts);
@@ -214,7 +214,7 @@ function updateDashboardUI(inv, dmg) {
                 stagnantList.innerHTML = badges[index];
                 stagnantList.style.opacity = 1;
             }, 250);
-        }, 23000);
+        }, 4000);
     }
 
     // C. PENDING DAMAGE TABLE
