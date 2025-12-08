@@ -192,6 +192,9 @@ function updateDashboardUI(inv, dmg) {
     if (stagnantItems.length === 0) {
         stagnantBox.style.display = 'none';
         if (stagnantRotateInterval) { clearInterval(stagnantRotateInterval); stagnantRotateInterval = null; }
+    // admin_script.js - updateDashboardUI ශ්‍රිතය තුළ
+
+    // ... (stagnantItems සැදීමෙන් පසු, else block එක තුළ)
     } else {
         stagnantBox.style.display = 'block';
 
@@ -202,20 +205,28 @@ function updateDashboardUI(inv, dmg) {
             const title = `Category: ${si.category} • Last OUT: ${dateOnly(si.lastOut)}`;
             return `<div class="stagnant-badge" title="${title}"><i class="fas fa-clock"></i> ${si.name} (${si.qty})</div>`;
         });
+        
+        // 💡 නව දත්ත පැමිණියහොත් වත්මන් Index එක සකස් කරන්න
+        if (stagnantRotateIndex >= badges.length) {
+            stagnantRotateIndex = 0;
+        }
 
-        let index = 0;
-        stagnantList.innerHTML = badges[index];
+        stagnantList.innerHTML = badges[stagnantRotateIndex]; // 👈 ගෝලීය Index භාවිතය
 
         if (stagnantRotateInterval) clearInterval(stagnantRotateInterval);
+        
         stagnantRotateInterval = setInterval(() => {
-            index = (index + 1) % badges.length;
+            // 💡 ඊළඟ Index එකට යන්න
+            stagnantRotateIndex = (stagnantRotateIndex + 1) % badges.length; 
+            
             stagnantList.style.opacity = 0;
             setTimeout(() => {
-                stagnantList.innerHTML = badges[index];
+                stagnantList.innerHTML = badges[stagnantRotateIndex]; // 👈 ගෝලීය Index භාවිතය
                 stagnantList.style.opacity = 1;
-            }, 250);
-        }, 2500);
+            }, 250); // CSS Transition සඳහා 250ms
+        }, 3000); //  (තත්පර 3)
     }
+    // ...
 
     // C. PENDING DAMAGE TABLE
     const dTable = document.getElementById('damageTable');
